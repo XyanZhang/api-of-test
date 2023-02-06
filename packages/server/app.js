@@ -7,6 +7,12 @@ const router = require("./router") // 配置路由
 const static = require("koa-static") // 静态资源管理
 const path = require("path")
 
+const ksdDuration = require('./middleware/koa_response_duration.js')
+const ksdHeader = require('./middleware/koa_response_header.js')
+
+app.use(ksdDuration);
+app.use(ksdHeader);
+
 /**
  * use()就是调用router中间件
  * router.routes()作用是启动路由
